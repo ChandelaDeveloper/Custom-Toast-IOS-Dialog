@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 
-import machin.example.com.dynamictoasts.DianamicToast;
+import machin.example.com.dynamictoasts.DynamicToast;
 import machin.example.com.dynamictoasts.iosDialog.IosDialogBuilder;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         new IosDialogBuilder(this)
                 .setTitle("Yo Bro")
                 .setSubtitle("No Bro")
@@ -20,6 +21,6 @@ public class MainActivity extends AppCompatActivity {
                 .setCancelable(false)
                 .setNegativeListener("NO NO",dialog->{dialog.dismiss();})
                 .setPositiveListener("YO YO",dialog -> {
-                    DianamicToast.defaultToast(this,"Message on toast", Gravity.CENTER,DianamicToast.LENGTH_SHORT);}).build().show();
+                    DynamicToast.customColorToast(this,"Message on toast", Gravity.CENTER, DynamicToast.LENGTH_SHORT,R.color.blue,R.drawable.ic_info,DynamicToast.ERROR);}).build().show();
     }
 }
